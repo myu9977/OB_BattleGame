@@ -651,9 +651,10 @@ GameObject:
   - component: {fileID: 239023362}
   - component: {fileID: 239023361}
   - component: {fileID: 239023360}
+  - component: {fileID: 239023363}
   m_Layer: 0
   m_Name: EliteOrc
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -739,13 +740,26 @@ Transform:
   m_GameObject: {fileID: 239023359}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.84, y: -2.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 111923841}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &239023363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 239023359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f43dd24602ac3c47989689f38e98999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &255094136
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,6 +3337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1088571810}
   - component: {fileID: 1088571809}
+  - component: {fileID: 1088571811}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -3374,6 +3389,24 @@ Transform:
   - {fileID: 950919456}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1088571811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088571808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cc8659ddd7cb634f94326857f127b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrowPrefab: {fileID: 5095577574485572690, guid: 6c497d9befe1ee84abba0a922e912326, type: 3}
+  firePoint: {fileID: 255094137}
+  fireForce: 20
+  attackInterval: 1
+  attackRadius: 5
+  damageAmount: 10
 --- !u!1 &1739165516
 GameObject:
   m_ObjectHideFlags: 0
