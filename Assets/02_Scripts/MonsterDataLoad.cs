@@ -6,7 +6,9 @@ public class MonsterDataLoad : MonoBehaviour
 {
     public TextAsset csvFile;
     public Transform monsterSpawner;
-    private Queue<MonsterData> monstersQueue = new Queue<MonsterData>();
+    //private Queue<MonsterData> monstersQueue = new Queue<MonsterData>();
+    private List<MonsterData> monstersList = new List<MonsterData>();
+    private int currentIndex = 0;
 
     void Start()
     {
@@ -39,15 +41,18 @@ public class MonsterDataLoad : MonoBehaviour
             }
 
             MonsterData data = new MonsterData(name, grade, speed, health);
-            monstersQueue.Enqueue(data);
+            //monstersQueue.Enqueue(data);
+            monstersList.Add(data);
         }
     }
 
     public void SpawnNextMonster()
     {
-        if (monstersQueue.Count > 0)
+        //if (monstersQueue.Count > 0)
+        if(monstersList.Count > 0)
         {
-            MonsterData data = monstersQueue.Dequeue();
+            //MonsterData data = monstersQueue.Dequeue();
+            MonsterData data = monstersList[currentIndex];
             GameObject monsterPrefab = Resources.Load<GameObject>(data.name);
             if (monsterPrefab != null)
             {
@@ -70,6 +75,8 @@ public class MonsterDataLoad : MonoBehaviour
             {
                 Debug.LogError("몬스터 프리팹 못찾음 " + data.name);
             }
+
+            currentIndex = (currentIndex + 1) % monstersList.Count;
         }
     }
 }
