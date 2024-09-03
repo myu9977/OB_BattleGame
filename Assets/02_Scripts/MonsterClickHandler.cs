@@ -41,7 +41,7 @@ public class MonsterClickHandler : MonoBehaviour
         if (popupPanel != null)
         {
             popupPanel.SetActive(true);
-            infoText.text = $"Name: {gameObject.name}\nHealth: {GetComponent<MonsterHealth>().health}";
+            infoText.text = $"Name: {GetComponent<MonsterHealth>().name}\nHealth: {GetComponent<MonsterHealth>().health}\nGrade: {GetComponent<MonsterHealth>().grade}\nSpeed: {GetComponent<MonsterMovement>().speed}";
         }
     }
 }

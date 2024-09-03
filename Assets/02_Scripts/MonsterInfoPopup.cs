@@ -11,12 +11,12 @@ public class MonsterInfoPopup : MonoBehaviour
         popupPanel.SetActive(false); // 시작 시 팝업 패널 비활성화
     }
 
-    public void ShowPopup(string monsterName, int monsterHealth)
+    public void ShowPopup(string monsterName, int monsterHealth, string monsterGrade, float monsterSpeed)
     {
         if (popupPanel != null)
         {
             popupPanel.SetActive(true);
-            infoText.text = $"Name: {monsterName}\nHealth: {monsterHealth}";
+            infoText.text = $"Name: {monsterName}\nHealth: {monsterHealth}\nGrade: {monsterGrade}\nSpeed: {monsterSpeed}";
         }
     }
 

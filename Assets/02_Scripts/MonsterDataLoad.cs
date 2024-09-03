@@ -29,14 +29,12 @@ public class MonsterDataLoad : MonoBehaviour
             float speed;
             if (!float.TryParse(values[2], System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out speed))
             {
-                Debug.LogError("Invalid speed value in CSV: " + values[2]);
                 continue;
             }
 
             int health;
             if (!int.TryParse(values[3], out health))
             {
-                Debug.LogError("Invalid health value in CSV: " + values[3]);
                 continue;
             }
 
@@ -59,6 +57,8 @@ public class MonsterDataLoad : MonoBehaviour
                 if (healthComponent != null)
                 {
                     healthComponent.health = data.health;
+                    healthComponent.grade = data.grade;
+                    healthComponent.name = data.name;
                 }
                 MonsterMovement movementComponent = monster.GetComponent<MonsterMovement>();
                 if (movementComponent != null)
@@ -68,7 +68,7 @@ public class MonsterDataLoad : MonoBehaviour
             }
             else
             {
-                Debug.LogError("Monster prefab not found: " + data.name);
+                Debug.LogError("몬스터 프리팹 못찾음 " + data.name);
             }
         }
     }

@@ -3,6 +3,8 @@ using UnityEngine;
 public class MonsterHealth : MonoBehaviour
 {
     public int health;
+    public string grade;
+    public string name;
     public GameObject monsterSpawner;
 
     public void TakeDamage(int damage)
@@ -17,7 +19,6 @@ public class MonsterHealth : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        // Notify the spawner to spawn the next monster
         monsterSpawner.GetComponent<MonsterDataLoad>().SpawnNextMonster();
     }
 }
