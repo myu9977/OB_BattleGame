@@ -20,14 +20,25 @@ public class Attack : MonoBehaviour
 
     void PlayerAttack()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackRadius);
         foreach (var hitCollider in hitColliders)
         {
             MonsterHealth monsterHealth = hitCollider.GetComponent<MonsterHealth>();
             if (monsterHealth != null)
             {
+                Debug.Log($"플레이어가 {hitCollider.name} 공격");
                 monsterHealth.TakeDamage(attackDamage);
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        MonsterHealth monsterHealth = other.GetComponent<MonsterHealth>();
+        if (monsterHealth != null)
+        {
+            Debug.Log($"플레이어 범위 안으로 {other.name} 들어옴");
+            //monsterHealth.TakeDamage(attackDamage);
         }
     }
 

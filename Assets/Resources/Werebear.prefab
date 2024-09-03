@@ -585,6 +585,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  grade: 
+  name: 
   monsterSpawner: {fileID: 0}
 --- !u!114 &146992189253134763
 MonoBehaviour:

@@ -7,9 +7,18 @@ public class MonsterHealth : MonoBehaviour
     public string name;
     public GameObject monsterSpawner;
 
+    private void Awake()
+    {
+        if (monsterSpawner == null)
+        {
+            monsterSpawner = GameObject.FindObjectOfType<MonsterDataLoad>().gameObject;
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         health -= damage;
+        Debug.Log($"몬스터 : {name} / 대미지 :  {damage} / 남은체력 : {health}");
         if (health <= 0)
         {
             Die();
@@ -18,6 +27,7 @@ public class MonsterHealth : MonoBehaviour
 
     void Die()
     {
+        Debug.Log($"{name} 죽음");
         Destroy(gameObject);
         monsterSpawner.GetComponent<MonsterDataLoad>().SpawnNextMonster();
     }
