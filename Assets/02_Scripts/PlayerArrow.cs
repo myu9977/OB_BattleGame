@@ -10,10 +10,10 @@ public class PlayerArrow : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
-            if (enemyHealth != null)
+            EnemyController enemyController = other.GetComponent<EnemyController>();
+            if (enemyController != null)
             {
-                enemyHealth.TakeDamage(damageAmount);
+                enemyController.TakeDamage(damageAmount);
             }
 
             Destroy(gameObject);

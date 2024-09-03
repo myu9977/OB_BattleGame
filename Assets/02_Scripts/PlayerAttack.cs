@@ -28,10 +28,10 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hitCollider.CompareTag("Enemy"))
                 {
-                    EnemyHealth enemyHealth = hitCollider.GetComponent<EnemyHealth>();
-                    if (enemyHealth != null)
+                    EnemyController enemyController = hitCollider.GetComponent<EnemyController>();
+                    if (enemyController != null)
                     {
-                        enemyHealth.TakeDamage(damageAmount);
+                        enemyController.TakeDamage(damageAmount);
                     }
                 }
             }
@@ -51,5 +51,11 @@ public class PlayerAttack : MonoBehaviour
         {
             rb.AddForce(firePoint.forward * fireForce, ForceMode.Impulse);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRadius);
     }
 }
